@@ -18,10 +18,11 @@ function insert() {
  // Required: verify that all fileds is not empty. Use encodeURI() to solve some issues about character encoding.
 var fnumber= encodeURI(document.getElementById('fnumber').value);
 var snumber = encodeURI(document.getElementById('snumber').value);
+var operation = encodeURIComponent(document.getElementById('operation').value);
  // Set te random number to add to URL request
 nocache = Math.random();
  // Pass the login variables like URL variable
-http.open('get', 'insert.php?fnumber='+fnumber+'&snumber=' +snumber+'&nocache = '+nocache);
+http.open('get', 'insert.php?fnumber='+fnumber+'&snumber=' +snumber+'&operation='+operation+'&nocache = '+nocache);
 http.onreadystatechange = insertReply;
 http.send(null);
 }
@@ -29,6 +30,6 @@ function insertReply() {
 if(http.readyState == 4){ 
 var response = http.responseText;
 // else if login is ok show a message: "Site added+ site URL".
-document.getElementById('insert_response').innerHTML = 'Site added:'+response;
+document.getElementById('insert_response').innerHTML = 'Operation added:'+response;
  }
  }
