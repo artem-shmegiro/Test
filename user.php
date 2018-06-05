@@ -1,4 +1,4 @@
-<?php<?PHP
+<?PHP
 header("Content-Type: text/html; charset=utf-8");
 ?>
 <!DOCTYPE html>
@@ -21,8 +21,7 @@ header("Content-Type: text/html; charset=utf-8");
  <![endif]-->  
   </head>
   <body>
-     
-     <div  id = "insert_response" > </ div> 
+      
      <div class="container center_div">
         <form class="form-horizontal" action="javascript:insert()" method="post">
         <hr>
@@ -36,7 +35,7 @@ header("Content-Type: text/html; charset=utf-8");
       <div class="form-group">
         <label for="operation" class="col-sm-2 control-label">Operation</label>
         <div class="col-sm-1">
-            <select class="form-control" name="operation" required>
+            <select class="form-control" name="operation" id="operation" required>
               <option>+</option>
               <option>-</option>
               <option>*</option>
@@ -56,18 +55,15 @@ header("Content-Type: text/html; charset=utf-8");
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-default" name="submit">Сalculate</button>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="reset" class="btn btn-default" name="reset">Clear</button>
-        </div>
       </div>      
         </form>  
       </div>
+      
+             <div  id = "insert_response" > </ div>    
     
-
+    <script src="ajax_framework.js" language="javascript"></script>
     <!-- на jQuery (необходим для Bootstrap - х JavaScript плагины) -->  
-    <script src = "ajax / ajax_framework.js"  language = "javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Включают все скомпилированные плагины (ниже), или включать отдельные файлы по мере необходимости -->  
     <script src="js/bootstrap.min.js"></script>
   </body>
