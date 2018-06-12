@@ -6,11 +6,30 @@ if(isset($_GET['fnumber']) && isset($_GET['snumber'])){
 $fnumber= $_GET['fnumber'];
 $snumber= $_GET['snumber'];
 $operation= $_GET['operation'];    
-$calcul_sql = ("INSERT INTO calculdb (fnumber, operation, snumber) VALUES('$fnumber','$operation','$snumber')");
+          if($_GET['snumber']==0 && $_GET['operation']=="/") echo "error";
+          else{
+            switch ($_GET['operation'])
+                {case "+":
+                      $result= $_GET['fnumber']+$_GET['snumber'];
+                      break;
+                case "-":
+                      $result= $_GET['fnumber']-$_GET['snumber'];
+                      break;
+                case "*":
+                      $result= $_GET['fnumber']*$_GET['snumber'];
+                      break;
+                case "/":
+                      $result= $_GET['fnumber']/$_GET['snumber'];
+                      break;
+                default:
+                   echo "error";
+                      }
+            }
+$calcul_sql = ("INSERT INTO calculdb (fnumber, operation, snumber, result) VALUES('$fnumber','$operation','$snumber','$result')");
 $insertCalcul= mysql_query($calcul_sql) or die(mysql_error());
 
-echo "$fnumber $operation $snumber";
-} else { 
+echo "$fnumber $operation $snumber";} 
+else { 
 echo 'Error! Please fill all fileds!';
 }
 ?>
