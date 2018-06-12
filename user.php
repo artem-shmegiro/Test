@@ -8,7 +8,7 @@ header("Content-Type: text/html; charset=utf-8");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Выше 3 Мета-теги ** должны прийти в первую очередь в голове; любой другой руководитель контент *после* эти теги -->  
-    <title>Bootstrap 101 Template</title>
+    <title>Сalculator</title>
 
     <!-- Bootstrap -->  
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,15 +51,24 @@ header("Content-Type: text/html; charset=utf-8");
         </div>
       </div>
         <hr>
+        <div class="form-group">
+        <label for="result" class="col-sm-2 control-label">Result</label>
+        <div class="col-sm-6">
+          <input type="number" disabled class="form-control" name="result" placeholder="Result" id="result">
+        </div>
+      </div>    
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-default" name="submit">Сalculate</button>
         </div>
       </div>      
-        </form>  
+        </form> 
+         <a class="btn btn-default" href="records.php" role="button">History operation</a>
       </div>
+      <div  id = "insert_response" > </ div>
       
-             <div  id = "insert_response" > </ div>    
+      
+                 
     
     <script src="ajax_framework.js" language="javascript"></script>
     <!-- на jQuery (необходим для Bootstrap - х JavaScript плагины) -->  
@@ -68,28 +77,3 @@ header("Content-Type: text/html; charset=utf-8");
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
-
-<?PHP
-  if (isset($_POST['fnumber'])&&
-     (isset($_POST['snumber'])&&
-	 (isset($_POST['operation']))))
-      if($_POST['snumber']==0 && $_POST['operation']=="/") echo "error";
-          else{
-            {switch ($_POST['operation'])
-                {case "+":
-                      echo $_POST['fnumber']+$_POST['snumber'];
-                      break;
-                case "-":
-                      echo $_POST['fnumber']-$_POST['snumber'];
-                      break;
-                case "*":
-                      echo $_POST['fnumber']*$_POST['snumber'];
-                      break;
-                case "/":
-                      echo $_POST['fnumber']/$_POST['snumber'];
-                      break;
-                default:
-                   echo "error";
-                      }
-            }
-}?>
